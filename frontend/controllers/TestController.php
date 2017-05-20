@@ -12,7 +12,11 @@ class TestController extends Controller {
 
     public function actionIndex() {
         $max = Yii::$app->params['maxNewsInList'];
-        $list = Test::getNewsList($max);
+        $max_word = Yii::$app->params['numberOfWord'];
+        $cutword = Yii::$app->params['shortWord'];
+//        $list = Test::getNewsList($max);
+//        $list = Test::getNewsList($max_word);
+        $list = Test::getNewsList($cutword);
         return $this->render('index', [
                     'list' => $list,
         ]);

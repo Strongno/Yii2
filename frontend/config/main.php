@@ -41,10 +41,14 @@ return [
             'rules' => [
                 'news' => 'test/index',
                 'news/<id:\d+>/' => 'test/view',
+                'newscount' => 'count/index',
             ],
         ],
         'stringHelper' => [
-            'class' => 'frontend\components\stringHelper',
+            'class' => 'frontend\components\StringHelper',
+        ],
+        'stringHelperUp' => [
+            'class' => 'frontend\components\StringHelperUp',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

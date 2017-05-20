@@ -15,7 +15,7 @@ $this->title = 'My Yii Application';
     </div>
 
     <div class="body-content">
-
+        <a href="<?php echo Yii::$app->urlManager->createUrl('count/index'); ?>">Количество новостей</a>
         <div class="row">
             <div class="col-lg-4">
                 <h2>Heading</h2>

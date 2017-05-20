@@ -8,17 +8,18 @@ use Yii;
 class Test {
     /**
      * 
-     * @param integer $max
-     * @return array
+     * @param type $max
+     * @return type
      */
     public static function getNewsList($max) {
         
         $max = intval($max);
-        $sql = 'SELECT * FROM news LIMIT '.$max;
+        $sql = 'SELECT * FROM news';
         $result = Yii::$app->db->createCommand($sql)->queryAll();
         $helper = Yii::$app->stringHelper;
         foreach ($result as &$item) {
-            $item['content'] = $helper->getShort($item['content']);
+//            $item['content'] = $helper->getShort($item['content']);
+              $item['content'] = $helper->getShortW($item['content']);
         }
         return $result;
     }
@@ -31,5 +32,10 @@ class Test {
         $id = intval($id);
         $sql = "SELECT * FROM news WHERE id = $id";
         return Yii::$app->db->createCommand($sql)->queryOne();
+    }
+    
+    public static function getNewsNumber() {
+        $sql = "SELECT count(*) FROM news";
+        return Yii::$app->db->createCommand($sql)->queryColumn();
     }
 }
