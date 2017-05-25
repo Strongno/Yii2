@@ -47,9 +47,6 @@ return [
         'stringHelper' => [
             'class' => 'frontend\components\StringHelper',
         ],
-        'stringHelperUp' => [
-            'class' => 'frontend\components\StringHelperUp',
-        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
