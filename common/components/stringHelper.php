@@ -1,9 +1,11 @@
 <?php
 
-namespace frontend\components;
+namespace common\components;
 
 use Yii;
-
+/**
+ * 
+ */
 class StringHelper {
 
     private $limit_letter;
@@ -21,8 +23,6 @@ class StringHelper {
             $limit = $this->limit_letter;
         }
         $result = str_word_count($string);
-        var_dump($result);
-        die;
     }
 
     public function getNumberOfWord($string, $number = null) {
