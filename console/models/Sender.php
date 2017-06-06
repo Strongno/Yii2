@@ -14,7 +14,6 @@ class Sender {
                 ->setSubject('Тема сообщения')
 
                 ->send();
-                var_dump($result);
         }
         
         
