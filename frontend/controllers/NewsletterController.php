@@ -9,19 +9,18 @@ use frontend\models\Subscribe;
 class NewsletterController extends Controller {
 
     public function actionSubscribe() {
-        
+
         $formData = Yii::$app->request->post();
         $model = new Subscribe();
-        if(Yii::$app->request->isPost)
-        {
+        if (Yii::$app->request->isPost) {
             $model->email = $formData['email'];
             $model->validate();
-            if ($model->validate() && $model->save()){
+            if ($model->validate() && $model->save()) {
                 Yii::$app->session->setFlash('success', 'Subscribe completed!');
             }
         }
         return $this->render('subscribe', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 

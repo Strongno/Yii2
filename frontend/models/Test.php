@@ -11,10 +11,15 @@ class Test {
      * @param type $max
      * @return type
      */
-    public static function getNewsList($max) {
-        
+    public static function getNewsList($max, $limit = null) {
+        if ($limit) {
+            $limit = $limit;
+        }
+        else {
+            $limit = 5;
+        }
         $max = intval($max);
-        $sql = 'SELECT * FROM news';
+        $sql = "SELECT * FROM news LIMIT $limit";
         $result = Yii::$app->db->createCommand($sql)->queryAll();
         $helper = Yii::$app->stringHelper;
         foreach ($result as &$item) {
