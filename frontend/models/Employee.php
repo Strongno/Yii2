@@ -51,10 +51,10 @@ class Employee extends Model {
         return $result;
     }
     
-    public static function getEmployeeColumn($limit, $column) {
+    public static function getEmployeeColumn($limit, $column, $column_order) {
         $limit = intval($limit);
         $column_implode = implode(',', $column);
-        $sql = "SELECT $column_implode FROM employee ORDER BY {$column[0]} DESC LIMIT {$limit} ";
+        $sql = "SELECT $column_implode FROM employee ORDER BY $column_order DESC LIMIT {$limit} ";
         $result = Yii::$app->db->createCommand($sql)->queryAll();
         return $result;
     }

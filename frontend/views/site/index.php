@@ -24,6 +24,7 @@ use frontend\widgets\salary\Salary;
                 <?php echo Salary::widget([
                     'limit' => 2,
                     'column' => array('salary', 'lastName'),
+                    'column_order' => 'salary',
                 ]); ?>
             </div>
             <div class="col-lg-4">
