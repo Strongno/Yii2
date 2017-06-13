@@ -20,7 +20,8 @@ class m170606_064807_create_employee_table extends Migration
             'email' => $this->string(255)->unique(),
             'date_birth' => $this->date(),
             'date_start' => $this->date(),
-            'city' => $this->integer(3),
+            'city' => $this->string(10),
+            'salary' => $this->double(2),
             'id_code' => $this->integer(10),
         ]);
     }

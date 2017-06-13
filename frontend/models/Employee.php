@@ -50,4 +50,12 @@ class Employee extends Model {
         $result = Yii::$app->db->createCommand($sql)->execute();
         return $result;
     }
+    
+    public static function getEmployeeColumn($limit, $column) {
+        $limit = intval($limit);
+        $column_implode = implode(',', $column);
+        $sql = "SELECT $column_implode FROM employee ORDER BY {$column[0]} DESC LIMIT {$limit} ";
+        $result = Yii::$app->db->createCommand($sql)->queryAll();
+        return $result;
+    }
 }
