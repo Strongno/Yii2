@@ -58,4 +58,10 @@ class Employee extends Model {
         $result = Yii::$app->db->createCommand($sql)->queryAll();
         return $result;
     }
+    
+    public static function find() {
+      $sql = 'SELECT * FROM employee';
+      return Yii::$app->db->createCommand($sql)->queryAll();
+    }
+    
 }

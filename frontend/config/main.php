@@ -15,6 +15,7 @@ return [
             'csrfParam' => '_csrf-frontend',
             'enableCsrfValidation' => false,
         ],
+        
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -43,6 +44,7 @@ return [
                 'news' => 'test/index',
                 'news/<id:\d+>/' => 'test/view',
                 'newscount' => 'count/index',
+                'about-me' => '/site/about',
             ],
         ],
         'stringHelper' => [
@@ -63,7 +65,9 @@ return [
     ],
     'params' => $params,
     'aliases' => [
-        '@files' => '/var/www/project/frontend/web/files',
+        '@web' => stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://' . $_SERVER['SERVER_NAME'],
+        '@files' => '@web/files',
         '@fotos' => '@files/fotos',
+        
     ]
 ];

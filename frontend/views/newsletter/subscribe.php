@@ -1,9 +1,21 @@
 <?php
-/* $var $model frontend\models\Subscribe */
-
+/*
+ * @var @this yii\web\View
+ * $var $model frontend\models\Subscribe
+ */
 //if (Yii::$app->session->hasFlash('subscribeStatus')) {
 //    echo Yii::$app->session->getFlash('subscribeStatus');
 //}
+
+$this->title = 'Подпишись на новости';
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => 'Description of page...',
+]);
+$this->params['breadcrumbs'] = [
+    $this->title,
+];
+
 if ($model->hasErrors()) {
     var_dump($model->getErrors());
 }
