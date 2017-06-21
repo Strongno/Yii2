@@ -1,6 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'ukccatc@gmail.com',
     'maxNewsInList' => '2',
     'shortTextLimit' => '20',
     'numberOfWord' => '5',
