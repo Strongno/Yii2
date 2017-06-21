@@ -1,9 +1,27 @@
 <?php
+/*
+ * var $model frontend\models\Employee
+ */
 if ($model->hasErrors()) {
     print_r($model->getErrors());
 }
+use Yii;
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
 ?>
-<form method='post' style="width:300px;">
+<?php $form = ActiveForm::begin(); ?>
+    <?php echo $form->field($model, 'firstName')->label(''); ?>
+    <?php echo $form->field($model, 'lastName'); ?>
+    <?php echo $form->field($model, 'middleName'); ?>
+    <?php echo $form->field($model, 'email'); ?>  
+    <?php echo $form->field($model, 'dateBirth'); ?> 
+    <?php echo $form->field($model, 'dateStart'); ?> 
+    <?php echo $form->field($model, 'idCode'); ?>
+    <?php echo $form->field($model, 'city')->dropDownList($model->getCitiesList()); ?> 
+    <?php echo Html::submitButton('Отправить', ['class' => 'btn btn-submit']); ?>
+<?php ActiveForm::end(); ?>
+
+<!--<form method='post' style="width:300px;">
     <p>First Name</p>
     <input type='text' class="form-control" name='firstName' />
     <br><br>
@@ -45,4 +63,4 @@ if ($model->hasErrors()) {
     
     
     <input type="submit" class="btn btn-default"/>
-</form>
+</form>-->

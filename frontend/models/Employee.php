@@ -3,6 +3,7 @@
 namespace frontend\models;
 use Yii;
 use yii\base\Model;
+use yii\helpers\ArrayHelper;
 
 
 class Employee extends Model {
@@ -62,6 +63,13 @@ class Employee extends Model {
     public static function find() {
       $sql = 'SELECT * FROM employee';
       return Yii::$app->db->createCommand($sql)->queryAll();
+    }
+    
+    public static function getCitiesList() {
+      $sql = 'SELECT * FROM cities';
+      $result = Yii::$app->db->createCommand($sql)->queryAll();
+      $result = ArrayHelper::map($result, 'id', 'city');
+      return $result;
     }
     
 }
