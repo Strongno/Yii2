@@ -11,6 +11,6 @@ class AliasController extends Controller {
 //       Yii::setAlias('@files', '/var/www/project/frontend/web/files');
        //$result = mkdir(Yii::getAlias('@fotos'));
        //var_dump($result);
-       echo Yii::getAlias('@web');
+//       echo Yii::getAlias('@web');
     }
 }

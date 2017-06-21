@@ -10,6 +10,7 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'language' => 'ru',
+    'sourceLanguage' => 'en',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
@@ -40,11 +41,22 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['ru', 'en'],
+            'enableDefaultLanguageUrlCode' => false,
             'rules' => [
                 'news' => 'test/index',
                 'news/<id:\d+>/' => 'test/view',
                 'newscount' => 'count/index',
                 'about-me' => '/site/about',
+            ],
+        ],
+        'i18n' => [
+            'translations' => [
+                'common*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                ],
             ],
         ],
         'stringHelper' => [
