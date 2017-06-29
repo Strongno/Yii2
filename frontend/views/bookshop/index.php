@@ -9,9 +9,7 @@
     <h3><?php echo $book->name; ?></h3>
     <p><?php echo $book->getDatePublished(); ?></p>
     <?php echo $book->getPublisherName(); ?>
-    <?php foreach($book->getAuthors() as $author): ?>
-    <p> <?php echo $author->first_name . ' ' .$author->last_name; ?></p>
-    <?php        endforeach; ?>
+    <?php echo $book->getFullName(); ?>
 </div>
 
 

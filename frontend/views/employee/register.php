@@ -19,7 +19,7 @@ use yii\helpers\Html;
     <?php echo $form->field($model, 'idCode'); ?>
     <?php echo $form->field($model, 'city')->dropDownList($model->getCitiesList()); ?> 
     <?php echo Html::submitButton('Отправить', ['class' => 'btn btn-submit']); ?>
-<?php ActiveForm::end(); ?>
+<?php $form = ActiveForm::end(); ?>
 
 <!--<form method='post' style="width:300px;">
     <p>First Name</p>

@@ -36,10 +36,18 @@ class Book extends ActiveRecord {
         
         return $this->hasMany(BookToAuthor::className(), ['book_id' => 'id']);
     }
-    
+    /*
+     * @object Authors[]
+     */
     public function getAuthors() {
         
         return $this->hasMany(Author::className(),['id' => 'author_id'])->via('bookToAuthorRelations')->all();
+    }
+    
+    public function getFullName() {
+        foreach($this->getAuthors() as $author) {
+             echo "<p>$author->first_name $author->last_name $author->rating</p>";
+        }
     }
 }
 
