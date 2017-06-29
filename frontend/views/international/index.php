@@ -3,11 +3,15 @@
 use Yii;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use yii\widgets\Pjax;
 
 $this->title = Yii::t('common', 'International');
 ?>
 
 <?php
+Pjax::begin([
+        // Pjax options
+]);
 $form = ActiveForm::begin([
             'id' => 'form1',
             'layout' => 'horizontal',
@@ -25,10 +29,11 @@ $form = ActiveForm::begin([
 ?>
 
 <?= $form->field($model, 'username') ?>
-        <?= $form->field($model, 'password')->passwordInput() ?>
+<?= $form->field($model, 'password')->passwordInput() ?>
 <div class="form-group">
     <div class="col-lg-offset-1 col-lg-11">
-<?= Html::submitButton(Yii::t('common', 'Submit'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('common', 'Submit'), ['class' => 'btn btn-primary']) ?>
     </div>
 </div>
 <?php ActiveForm::end(); ?>
+<?php Pjax::end(); ?>

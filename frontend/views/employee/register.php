@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 ?>
 <?php $form = ActiveForm::begin(); ?>
-    <?php echo $form->field($model, 'firstName')->label(''); ?>
+    <?php echo $form->field($model, 'firstName'); ?>
     <?php echo $form->field($model, 'lastName'); ?>
     <?php echo $form->field($model, 'middleName'); ?>
     <?php echo $form->field($model, 'email'); ?>  

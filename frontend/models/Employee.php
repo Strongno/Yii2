@@ -38,6 +38,13 @@ class Employee extends Model {
             [['middleName'], 'required', 'on' =>self::SCENATION_EMPLOYEE_UPDATE],
         ];
     }
+    
+    public function attributeLabels()
+    {
+        return [
+            'firstName' => 'Imia',
+        ];
+    }
     /**
      * Saves data from registes input to db->table employee
      * @param array $attributes array of $this->attributes It matters the sequence of public properties
