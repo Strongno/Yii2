@@ -14,7 +14,8 @@ if ($model->hasErrors()) {
 <h3>Add Product</h3>
 <?php $form = ActiveForm::begin(); ?>
 <?php echo $form->field($model, 'product'); ?>
-<?php echo $form->field($model, 'date_published'); ?>
+<?php echo $form->field($model, 'options'); ?>
+<?php echo $form->field($model, 'price'); ?>
 <?php echo Html::submitButton('Отправить', ['class' => 'btn btn-submit']); ?>
 
 <?php $form = ActiveForm::end() ?>

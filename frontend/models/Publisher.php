@@ -1,7 +1,7 @@
 <?php
 
 namespace frontend\models;
-
+use yii\helpers\ArrayHelper;
 use Yii;
 
 /**
@@ -42,5 +42,17 @@ class Publisher extends \yii\db\ActiveRecord
             'date_registered' => 'Date Registered',
             'identity_number' => 'Identity Number',
         ];
+    }
+    /*
+     * @property publisher[] list of Publishers name
+     */
+    static public function getList() {
+        $list = self::find()->asArray()->all();
+//        $publisher = Array();
+//        foreach ($list as $pub) {
+//            $publisher[] = $pub['name'];
+//        }
+//        return $publisher;
+        return ArrayHelper::map($list, 'id', 'name');
     }
 }

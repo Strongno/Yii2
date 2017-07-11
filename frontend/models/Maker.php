@@ -27,8 +27,6 @@ class Maker extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id'], 'integer'],
-            [['maker'], 'string', 'max' => 255],
         ];
     }
 

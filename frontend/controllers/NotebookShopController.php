@@ -31,11 +31,26 @@ class NotebookShopController extends \yii\web\Controller
     }
     
     public function actionCreateCategory() {
-        return $this->render('category');
+        $model = new Category;
+        
+        if($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', 'Saved Succesfully');
+        }
+        return $this->render('category', [
+            'model' => $model,
+        ]);
     }
     
     public function actionCreateMaker() {
-        return $this->render('maker');
+        $model = new Maker;
+        
+        if($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', 'Saved Succesfully');
+        }
+        
+        return $this->render('maker', [
+            'model' => $model,
+        ]);
     }
     
 

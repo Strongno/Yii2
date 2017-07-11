@@ -5,20 +5,20 @@ namespace frontend\models;
 use Yii;
 
 /**
- * This is the model class for table "category".
+ * This is the model class for table "product_to_category".
  *
  * @property integer $id
- * @property string $category
  * @property integer $product_id
+ * @property integer $category_id
  */
-class Category extends \yii\db\ActiveRecord
+class ProductToCategory extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'category';
+        return 'product_to_category';
     }
 
     /**
@@ -37,8 +37,8 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category' => 'Category',
             'product_id' => 'Product ID',
+            'category_id' => 'Category ID',
         ];
     }
 }

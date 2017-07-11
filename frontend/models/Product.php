@@ -18,7 +18,7 @@ class Product extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'product';
+        return '{{product}}';
     }
 
     /**
@@ -42,5 +42,27 @@ class Product extends \yii\db\ActiveRecord
             'product' => 'Product',
             'date_published' => 'Date Published',
         ];
+    }
+    
+    public function getMaker() {
+        return $this->hasOne(Maker::className(), ['id' => 'maker_id'])->one();
+    }
+    
+    public function getProductToCategory() {
+        
+        return $this->hasMany(ProductToCategory::className(), ['product_id' => 'id']);
+    }
+    /*
+     * @object Authors[]
+     */
+    public function getCategory() {
+        
+        return $this->hasMany(Category::className(),['id' => 'category_id'])->via('productToCategory')->all();
+    }
+    
+    public function getCategoryOne() {
+        foreach($this->getCategory() as $category) {
+             return $category->category;
+        }
     }
 }

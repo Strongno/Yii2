@@ -13,6 +13,8 @@ class Book extends ActiveRecord {
     public function rules() {
         return [
             [['name', 'publisher_id'], 'required'],
+            ['date_published', 'date', 'format' => 'php:Y-m-d'],
+            ['isbn', 'safe'],
         ];
     }
     
@@ -49,5 +51,6 @@ class Book extends ActiveRecord {
              echo "<p>$author->first_name $author->last_name $author->rating</p>";
         }
     }
+    
 }
 
