@@ -38,16 +38,26 @@ AppAsset::register($this);
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
-        ['label' => 'Author Edit', 'url' => ['author/index']],
-        ['label' => 'Publisher Edit', 'url' => ['publisher/index']],
-//        ['label' => 'Language',  ]
+//        ['label' => 'Author Edit', 'url' => ['author/index']],
+//        ['label' => 'Publisher Edit(gii)', 'url' => ['publisher/index']],
+//        ['label' => 'Books list', 'url' => ['bookshop/index']],
+        ['label' => 'Bookshop',
+            'items' => [
+                 ['label' => 'Books list', 'url' => ['bookshop/index']],
+                 '<li class="divider"></li>',
+                 ['label' => 'Publisher edit', 'url' => ['publisher/index']],
+                '<li class="divider"></li>',
+                ['label' => 'Author Edit', 'url' => ['author/index']],
+            ]],
+        
+        ['label' => 'Language',  ]
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Signup', 'url' => ['/user/signup']];
+        $menuItems[] = ['label' => 'Login', 'url' => ['/user/login']];
     } else {
         $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
+            . Html::beginForm(['/user/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
