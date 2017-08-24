@@ -5,6 +5,8 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 use frontend\models\Test;
+use Faker\Factory;
+use frontend\models\News;
 /**
  * author <oleg rostovtsev>
  */
@@ -21,11 +23,11 @@ class TestController extends Controller {
                     'list' => $list,
         ]);
     }
-    
+
     public function actionView($id) {
         $item = Test::getItem($id);
-        return $this->render('view',[
-            'item' => $item,
+        return $this->render('view', [
+                    'item' => $item,
         ]);
     }
 
@@ -37,7 +39,20 @@ class TestController extends Controller {
                 ->setTextBody('Текст сообщения')
                 ->setHtmlBody('<b>текст сообщения в формате HTML</b>')
                 ->send();
-        var_dump($result);die;
+        var_dump($result);
+        die;
+    }
+
+    public function actionGenerate() {
+        for ($i = 0; $i<100; $i++) {
+        $faker = Factory::create();
+        
+        $newsItem = new News();
+        $newsItem->title = $faker->text(35);
+        $newsItem->content = $faker->text(rand(1000,2000));
+        $newsItem->status = rand(0,1);
+        $newsItem->save();
+        }
     }
 
 }
